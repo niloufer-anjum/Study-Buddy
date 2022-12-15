@@ -1,6 +1,5 @@
 from django.db import models
 from participant.models import Participant
-from posttype.models import PostType
 
 # Create your models here.
 class Room(models.Model):
@@ -19,7 +18,6 @@ class Post(models.Model):
     title = models.CharField(max_length=500)
     post = models.TextField()
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
-    post_type = models.ForeignKey(PostType, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
