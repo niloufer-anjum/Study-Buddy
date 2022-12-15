@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+{% block topics %} 
+        <h2>BROWSE TOPICS</h2>
+        <ul class="topics_list">
+            <li>All</li>
+            {% for topic in topics %}
+                <li>{{ topic.topic_name }}</li>
+            {% endfor %}
+            <li><a href="#">More</a></li>
+        </ul>
+{% endblock %}

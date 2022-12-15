@@ -1,0 +1,8 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h3>Your Rooms</h3>
+{% for room in rooms %}
+    {{ room }}
+{% endfor %}
+{% endblock %}

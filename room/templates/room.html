@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% block content %}
+<h1>{{ room_name }}</h1>
+<creator>{{ room_creator }}</creator>
+<date>{{ room_creation_date }}</date>
+<count>{{ participants.count }} Joined</count>
+<posts>
+    {% for post in posts %}
+        {{ post }}
+    {% endfor %}
+</posts>
+<h3>Your Rooms</h3>
+{% for room in rooms_list %}
+    {{ room }}
+{% endfor %}
+{% endblock %}
