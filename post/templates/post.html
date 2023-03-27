@@ -1,0 +1,17 @@
+{% include "main.html" %}
+{% block content %}
+<h1>{{ post.title }}</h1>
+<creator>{{ post.created_by }}</creator>
+<date>{{ post.created_at }}</date>
+<post>
+    {{ post.post }}
+</post>
+<like>
+    {{likes}}
+</like>
+<comment>
+    {% for comment in comments %}
+        {{ comment }}
+    {% endfor %}
+</comment>
+{% endblock %}

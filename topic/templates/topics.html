@@ -1,11 +1,14 @@
-{% extends "index.html" %}
-{% block topics %} 
+{% extends "main.html" %}
+{% block content %} 
+<form method='POST'>
+    {% csrf_token %}
+    <input type="text" name="topic_name">
+    <button type="submit">Create</button>
+</form>
         <h2>BROWSE TOPICS</h2>
         <ul class="topics_list">
-            <li>All</li>
             {% for topic in topics %}
-                <li>{{ topic.topic_name }}</li>
+                <li><a href="{% url 'rooms' %}?q={{topic.topic_name}}">{{ topic.topic_name }}</a></li>
             {% endfor %}
-            <li><a href="#">More</a></li>
         </ul>
-{% endblock %}
+{% endblock content %}

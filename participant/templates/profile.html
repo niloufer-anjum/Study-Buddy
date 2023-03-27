@@ -1,0 +1,9 @@
+{% include "main.html" %}
+{% block content %}
+<h1>{{ user.first_name }} {{ user.last_name }}</h1>
+<h5>u/{{ user.user_name }}</h5>
+
+<img src="{{ user.profile_pic.url }}">
+<h3>About</h3>
+<p>{{ user.description }}</p>
+{% endblock %}

@@ -2,3 +2,11 @@ img {
     width: 5em;
     height: 5em;
 }
+
+.navbar-brand, .navbar-link {
+    color: #fff !important;
+}
+
+.card {
+    margin: 10rem !important;
+}

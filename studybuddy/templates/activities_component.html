@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-header">
+    <h2>Recent Activities</h2>
+  </div>
+  <div class="card-body">
+    <p class="card-text">
+      <ul class="feed list-group">
+        {% for comment in comments %}
+          <li class="list-group-item">
+            <small class="text-muted text-left">
+              <span class="room_name"><a href="{% url 'rooms' %}{{ comment.post.room.name }}">{{ comment.post.room.name }}</a></span>
+              Replied by
+              <a class="user" href="{% url 'profile' user %}">@{{ comment.created_by }}</a>
+            </small>
+            <small class="text-muted text-right">{{ comment.created_at|timesince }} ago</small>
+          </p>
+          <h5 class="card-title">
+            <a href="{% url 'post' comment.post.title %}">{{ comment.post.title }}</a>
+          </h5>
+          <p class="card-footer">{{ comment.comment }}</p>
+        </div>
+      </div>
+    </li>
+  {% endfor %}
+</ul>

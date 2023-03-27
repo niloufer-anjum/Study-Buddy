@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-header">
+        <h2>Browse Topics</h2>
+    </div>
+    <div class="card-body">
+        <ul class="topics_list">
+            {% for topic in topics %}
+                <li>
+                    <a href="{% url 'rooms' %}?q={{ topic.topic_name }}">{{ topic.topic_name }}</a>
+                </li>
+            {% endfor %}
+            <li>
+                <a href="{% url 'topics' %}">More</a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header">
+    <h1>Welcome, {{ user.first_name }}!</h1>
+  </div>
+  <div class="card-body">
+    <ul class="feed list-group">
+      {% for post in recent_posts %}
+        <li class="list-group-item">
+          <small class="text-muted text-left">
+            <span class="room_name"><a href="{% url 'rooms' %}{{ post.room.name }}">{{ post.room.name }}</a></span>
+            Posted by
+            <a class="user" href="{% url 'profile' user %}">@{{ post.created_by }}</a>
+          </small>
+          <small class="text-muted text-right">{{ post.created_at|timesince }} ago</small>
+        <h5 class="card-title">
+          <a href="{% url 'post' post.title %}">{{ post.title }}</a>
+        </h5>
+        <p class="card-text">{{ post.post }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+</div>

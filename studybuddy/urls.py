@@ -16,10 +16,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from participant import views as participant_views
+
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="home"),
-    path('rooms/', include('room.urls'),),
-    path('topic/', include('topic.urls'),)
+    path('rooms/', include('room.urls')),
+    path('topics/', include('topic.urls')),
+    path('posts/', include('post.urls')),
+    path('profile/', include('participant.urls')),
+    path('account/', include('account.urls')),
+    path('auth/', include('django.contrib.auth.urls'))
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
