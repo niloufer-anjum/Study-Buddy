@@ -1,14 +1,13 @@
 {% extends "main.html" %}
 {% block content %} 
-
-<div class="container-fluid py-4">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-3">
+    <div class="col">
       <div class="topics">
         {% include "topics_component.html" %}
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-7">
       <div class="rooms">
         {% include "feed_component.html" %}
       </div>
@@ -17,7 +16,6 @@
       <div class="activities">
         {% include "activities_component.html" %}
       </div>
-      
     </div>
   </div>
 </div>

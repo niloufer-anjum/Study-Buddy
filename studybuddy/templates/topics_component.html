@@ -1,17 +1,25 @@
-<div class="card">
-    <div class="card-header">
-        <h2>Browse Topics</h2>
-    </div>
+<div class="card border-light">
     <div class="card-body">
-        <ul class="topics_list">
+        <div class="card-title">
+            <h4>Browse Topics</h4>
+        </div>
+        <ul class="topics_list list-group list-group-flush">
             {% for topic in topics %}
-                <li>
-                    <a href="{% url 'rooms' %}?q={{ topic.topic_name }}">{{ topic.topic_name }}</a>
-                </li>
+                <a href="{% url 'rooms' %}?q={{ topic.topic_name }}"
+                   class="list-group-item list-group-item-action py-3 lh-sm"
+                   aria-current="true">
+                    <div class="d-flex w-100 align-items-center justify-content-between">
+                        <strong class="mb-1">{{ topic.topic_name }}</strong>
+                    </div>
+                </a>
             {% endfor %}
-            <li>
-                <a href="{% url 'topics' %}">More</a>
-            </li>
+            <a href="{% url 'topics' %}"
+               class="list-group-item list-group-item-action py-3 lh-sm"
+               aria-current="true">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <strong class="mb-1">More</strong>
+                </div>
+            </a>
         </ul>
     </div>
 </div>

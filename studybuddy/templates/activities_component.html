@@ -1,25 +1,16 @@
-<div class="card">
-  <div class="card-header">
-    <h2>Recent Activities</h2>
-  </div>
-  <div class="card-body">
-    <p class="card-text">
-      <ul class="feed list-group">
-        {% for comment in comments %}
-          <li class="list-group-item">
-            <small class="text-muted text-left">
-              <span class="room_name"><a href="{% url 'rooms' %}{{ comment.post.room.name }}">{{ comment.post.room.name }}</a></span>
-              Replied by
-              <a class="user" href="{% url 'profile' user %}">@{{ comment.created_by }}</a>
-            </small>
-            <small class="text-muted text-right">{{ comment.created_at|timesince }} ago</small>
-          </p>
-          <h5 class="card-title">
-            <a href="{% url 'post' comment.post.title %}">{{ comment.post.title }}</a>
-          </h5>
-          <p class="card-footer">{{ comment.comment }}</p>
-        </div>
+<div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-body-tertiary">
+  <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+    <h4 class="fs-5 fw-semibold">Recent Activities</h4>
+  <div class="list-group list-group-flush border-bottom scrollarea">
+    {% for comment in comments %}
+    <a href="{% url 'post' comment.post.title %}" class="list-group-item list-group-item-action py-3 lh-sm" aria-current="true">
+      <div class="d-flex w-100 align-items-center justify-content-between">
+        <strong class="mb-1">{{ comment.post.room.name }}</strong>
+        <small>{{ comment.created_at|timesince }} ago</small>
       </div>
-    </li>
-  {% endfor %}
-</ul>
+      <div class="col-10 mb-1 small">{{ comment.post.title }}</div>
+      <div class="col-10 mb-1 small">{{ comment.comment }}</div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
